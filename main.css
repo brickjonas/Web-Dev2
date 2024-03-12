@@ -1,0 +1,83 @@
+body{ 
+    background-color: #5a5553;
+}
+
+.pokemonLogo {
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    column-gap: 5px;
+    position: sticky;
+}
+.pokemonLogo :hover{
+    color: white
+}
+#pokeball{
+    margin-top: 15px;
+}
+
+#pokeball img{
+height: 60px;
+width: 60px;
+}
+
+#logo{
+    height: fit-content;
+}
+
+#logo p{
+    font-size: 30px;
+
+}
+
+#searchbar{
+    margin: auto;
+    align-items: center;
+    position: relative;
+}
+#entrybox{
+    position: relative;
+    margin:auto;
+    justify-content: center;
+    width: 40%;
+}
+
+#entrybox input{
+    position: absolute;
+    outline: none;
+    width: 99%;
+    font-size: 30px;
+    border-radius: 12px;
+    z-index: 1111;
+    background: transparent;
+    border: solid 2px white;
+    transition: 0.1s ease;
+}
+#entrybox input:focus,
+#entrybox input:hover{
+    border: solid 3px black;
+    color: black;
+}
+#entrybox input:focus + .labelLine,
+#entrybox input:hover + .labelLine{
+    transform: translate(-15px,-3px) scale(0.88);
+    z-index: 1111;
+    background-color: #5a5553;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.labelLine{
+    position: absolute;
+    padding: 0 25px;
+    margin: 0 25px; 
+    font-size: 30px;
+    transition: 0.2s ease;
+
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
