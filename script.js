@@ -1,6 +1,13 @@
 // When click the seach icon
 document.querySelector("#search").addEventListener("click", getPokemon);
 
+// When hit Enter in search bar
+document.getElementById('pokemonName').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        getPokemon(); 
+    }
+});
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
