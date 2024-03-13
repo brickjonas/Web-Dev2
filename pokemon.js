@@ -2,7 +2,7 @@ console.log("Hello World");
 
 function fetchPokemon() {
     for(let i =1;i <=20;i++){
-    const url = 'https://pokeapi.co/api/v2/pokemon/1';
+    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     fetch(url)
     .then(function(res) {
         return res.json();
