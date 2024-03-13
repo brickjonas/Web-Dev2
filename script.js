@@ -6,9 +6,9 @@ function capitalizeFirstLetter(string) {
 }
 
 function getPokemon(e) {
-    const name = document.querySelector("#pokemonName").value;
+    const name = document.querySelector("#pokemonName").value.toLowerCase();
 
-    fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    fetch (`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((response) => response.json())
         .then((data) => {
             document.querySelector(".pokemonBox").innerHTML = `
@@ -24,7 +24,7 @@ function getPokemon(e) {
                 <h1>${capitalizeFirstLetter(data.name)}</h1>
                 <p>#${data.id}</p>
                 <p>Height: ${data.height}</p>
-                <p>Weight: ${data.weight}</p>
+                <p>Weight: ${data.weight * 0.220462} lbs</p>
             </div>
             `;
         })
@@ -32,7 +32,7 @@ function getPokemon(e) {
             console.log("Pokemon not found", err);
         });
 
-    e.preventDefualt();
+    //e.preventDefualt();
 }
 
 
