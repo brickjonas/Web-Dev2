@@ -27,11 +27,9 @@ function getPokemon(e) {
             </div>
             <div class="pokemonInfo">
                 <h1>${capitalizeFirstLetter(data.name)}</h1>
-                <p>Weight:${parseInt(data.weight * 0.220462)} lbs</p>
-                <h1>${capitalizeFirstLetter(data.name)}</h1>
                 <p>#${data.id}</p>
                 <p>Height: ${data.height}</p>
-                <p>Weight: ${data.weight * 0.220462} lbs</p>
+                <p>Weight: ${parseInt(data.weight * 0.220462)} lbs</p>
             </div>
             `;
         })
