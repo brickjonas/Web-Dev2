@@ -36,7 +36,7 @@ function getPokemon(e){
                 
                 <p>#${data.id}</p>
                 <p>Height: ${data.height}</p>
-                <p>Weight: ${parseInt(data.weight * 0.220462)}</p>
+                <p>Weight: ${parseInt(data.weight * 0.220462)} lbs</p>
             </div>
             `;
         })
