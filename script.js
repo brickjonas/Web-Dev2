@@ -1,3 +1,4 @@
+// When click the seach icon
 document.querySelector("#search").addEventListener("click", getPokemon);
 
 function capitalizeFirstLetter(string) {
@@ -6,9 +7,8 @@ function capitalizeFirstLetter(string) {
 
 function getPokemon(e) {
     const name = document.querySelector("#pokemonName").value;
-    const pokeName = name.toLowerCase();
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+    fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
         .then((response) => response.json())
         .then((data) => {
             document.querySelector(".pokemonBox").innerHTML = `
@@ -21,8 +21,12 @@ function getPokemon(e) {
             <div class="pokemonInfo">
                 <h1>${capitalizeFirstLetter(data.name)}</h1>
                 <p>Weight:${parseInt(data.weight * 0.220462)} lbs</p>
+                <h1>${capitalizeFirstLetter(data.name)}</h1>
+                <p>#${data.id}</p>
+                <p>Height: ${data.height}</p>
+                <p>Weight: ${data.weight}</p>
             </div>
-                `;
+            `;
         })
         .catch((err) => {
             console.log("Pokemon not found", err);
