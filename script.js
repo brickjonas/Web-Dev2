@@ -1,7 +1,7 @@
 document.querySelector("#search").addEventListener("click", getPokemon);
 
 function getPokemon(e) {
-    const name = document.querySelector("#pokemonName").ariaValueMax;
+    const name = document.querySelector("#pokemonName").value;
 
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((response) => response.json())
@@ -9,13 +9,13 @@ function getPokemon(e) {
             document.querySelector(".pokemonBox").innerHTML = `
             <div>
                 <img
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
-                    alt="Ditto"
+                    src="${data.sprites.other["official-artwork"].front_default}"
+                    alt="${data.name}"
                 />
             </div>
             <div class="pokemonInfo">
-                <h1>Ditto</h1>
-                <p>Description</p>
+                <h1>${data.name}</h1>
+                <p>Weight:${data.weight}</p>
             </div>
                 `;
         })
