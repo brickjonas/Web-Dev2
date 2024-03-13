@@ -40,8 +40,40 @@ function getPokemon(e) {
     //e.preventDefualt();
 }
 
-//testing to make my own branch lol
+async function getPokemonID(string) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${string}`);
+        const data = await response.json();
+        console.log('data id is ' + data.id);
+        return data.id;
+    } catch (err) {
+        console.log("Pokemon not found", err);
+        throw err; // rethrowing error so it can be caught in getPokemonDescription
+    }
+}
+
+async function getPokemonDescription(e) {
+    const name = document.querySelector("#pokemonName").value.toLowerCase();
+    console.log('testing' + name);
+    
+    try {
+        const pokeID = await getPokemonID(name);
+        console.log('pokeid is ' + pokeID);
+        
+        const response = await fetch(`https://pokeapi.co/api/v2/characteristic/${pokeID}/`);
+        const data = await response.json();
+        console.log(data.descriptions)
+        document.querySelector(".pokemonBox").innerHTML = `
+            <div class="pokemonInfo">
+                <p>${data.descriptions["7"]}</p> >
+            </div>
+        `;
+    } catch (err) {
+        console.log("Pokemon not found", err);
+    }
+}
 
 
 
 getPokemon();
+getPokemonDescription();
