@@ -1,9 +1,19 @@
+// When click the seach icon
 document.querySelector("#search").addEventListener("click", getPokemon);
 
+// When hit Enter in search bar
+document.getElementById('pokemonName').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        getPokemon(); 
+    }
+});
+
+// Capitalize the first letter (for printting Pokemon Name)
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase()+string.slice(1);
 }
 
+// fetch from Pokemon API and display the result
 function getPokemon(e){
     const pokemonName = document.querySelector("#pokemonName").value.toLowerCase();
 
